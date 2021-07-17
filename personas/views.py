@@ -12,8 +12,13 @@ def personaTestView(request):
 
 
 def personaCreateView(request):
-    print('GET: ',request.GET)
-    print('POST: ',request.POST)
+    print(request)
+    if request.method == 'POST':
+        nombre = request.POST.get('q')
+        print(nombre)
+    #print('GET: ',request.GET)
+    #print('POST: ',request.POST)
+    
   #form = PersonaForm(request.POST or None)
     #if form.is_valid():
      #   form.save()
