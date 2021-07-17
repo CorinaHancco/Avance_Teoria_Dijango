@@ -12,13 +12,15 @@ def personaTestView(request):
 
 
 def personaCreateView(request):
-    form = PersonaForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        form = PersonaForm() #blanquea los cambios
+    print('GET: ',request.GET)
+    print('POST: ',request.POST)
+  #form = PersonaForm(request.POST or None)
+    #if form.is_valid():
+     #   form.save()
+      #  form = PersonaForm() #blanquea los cambios
 
     context = {
-        'form': form
+       # 'form': form
     }
     return render(request,'personas/personasCreate.html',context)
 
