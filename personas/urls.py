@@ -10,6 +10,7 @@ from personas.views import (
 )
 
 from .views import (
+    PersonaCreateView,
     PersonaDetailView,
     PersonaListView,
 )
@@ -26,5 +27,6 @@ urlpatterns = [
 
     #django5
     path('',PersonaListView.as_view(),name = 'persona-list'),
-    path('<int:pk>/',PersonaDetailView.as_view(),name='persona-detail')
+    path('<int:pk>/',PersonaDetailView.as_view(),name='persona-detail'),
+    path('create/',PersonaCreateView.as_view(), name = 'persona-create'),
 ]
