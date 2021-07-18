@@ -1,6 +1,12 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Persona
 from .forms import PersonaForm, RawPersonaForm
+from django.views.generic.list import (
+    ListView,
+)
+
+class PersonaListView(ListView):
+    model = Persona
 
 # Create your views here.
 def personaTestView(request):
@@ -67,3 +73,6 @@ def personasListView(request):
         'objectList':queryset,
     }
     return render(request, 'personas/personasLista.html',context)
+
+
+

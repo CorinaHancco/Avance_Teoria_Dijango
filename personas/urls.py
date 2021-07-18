@@ -9,6 +9,10 @@ from personas.views import (
     searchForHelp
 )
 
+from .views import (
+    PersonaListView,
+)
+
 app_name = 'personas'
 urlpatterns = [
     #path('persona/',personaTestView,name='otro'),
@@ -17,5 +21,9 @@ urlpatterns = [
     #path('anotherAdd',personasAnotherCreateView,name='OtroAgregarPersonas'),
     path('<int:myID>/',personasShowObject, name = 'browsing'),
     path('<int:myID>/delete/',personaDeleteView, name = 'deleting'),
-    path('',personasListView, name = 'listing'),
+    #path('',personasListView, name = 'listing'),
+
+    #django5
+    path('',PersonaListView.as_view(),name = 'persona-list'),
+
 ]
