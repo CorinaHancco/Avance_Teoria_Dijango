@@ -5,6 +5,7 @@ from django.views.generic import (
     ListView,
     DetailView,
     CreateView,
+    UpdateView,
 )
 
 class PersonaCreateView(CreateView):
@@ -15,6 +16,16 @@ class PersonaCreateView(CreateView):
         'edad',
         'donador'
     ]
+
+class PersonaUpdateView(UpdateView):
+    model = Persona
+    fields = [
+        'nombres',
+        'apellidos',
+        'edad',
+        'donador'
+    ]
+    
 class PersonaDetailView(DetailView):
     model = Persona
 
