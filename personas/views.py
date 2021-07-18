@@ -1,12 +1,19 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Persona
 from .forms import PersonaForm, RawPersonaForm
+from django.urls import reverse_lazy
 from django.views.generic import (
     ListView,
     DetailView,
     CreateView,
     UpdateView,
+    DeleteView,
 )
+
+class PersonaDeleteView(DeleteView):
+    print ("llega")
+    model = Persona
+    success_url = reverse_lazy('personas:persona-list')
 
 class PersonaCreateView(CreateView):
     model = Persona
