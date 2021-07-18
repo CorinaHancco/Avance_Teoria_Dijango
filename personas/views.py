@@ -7,6 +7,7 @@ from django.views.generic.list import (
 
 class PersonaListView(ListView):
     model = Persona
+    queryset = Persona.objects.filter(edad__lte = '40')
 
 # Create your views here.
 def personaTestView(request):
