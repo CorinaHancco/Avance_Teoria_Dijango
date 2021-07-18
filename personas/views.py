@@ -1,7 +1,10 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Persona
 from .forms import PersonaForm, RawPersonaForm
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy ## no corree
+from django.views import View
+from django.http import  HttpResponse
+
 from django.views.generic import (
     ListView,
     DetailView,
@@ -9,6 +12,10 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
+
+class PersonaQueryView(View):
+    def get(self,request,*args,**kwargs):
+        return HttpResponse("Hola mundo con clases")
 
 class PersonaDeleteView(DeleteView):
     print ("llega")
