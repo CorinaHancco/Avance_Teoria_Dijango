@@ -12,8 +12,11 @@ def personaTestView(request):
 
 
 def personaCreateView(request):
-    obj = Persona.objects.get(id=2)
-    form = PersonaForm(request.POST or None, instance=obj)
+    #obj = Persona.objects.get(id=2)
+    initialValues = {
+        'nombres':'Sin Nombre'
+    }
+    form = PersonaForm(request.POST or None, initial=initialValues)
     if form.is_valid():
         form.save()
         form = PersonaForm() #blanquea los cambios
