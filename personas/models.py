@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Persona(models.Model):
@@ -7,4 +8,4 @@ class Persona(models.Model):
     edad = models.IntegerField()#(max_digits=3)
     donador = models.BooleanField()
     def get_absolute_url(self):
-        return "/personas/"+str(self.id)+"/"
+        return reverse('browsing',kwargs={'myID':self.id}) 
