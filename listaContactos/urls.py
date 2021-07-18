@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('persona/',personaTestView,name='otro'),
-    path('agregar/',personaCreateView,name='createPersona'),
+    path('add',personaCreateView,name='createPersona'),
     path('search/',searchForHelp,name='buscar'),
     path('anotherAdd',personasAnotherCreateView,name='OtroAgregarPersonas'),
 ]

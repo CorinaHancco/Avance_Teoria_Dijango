@@ -1,7 +1,7 @@
 from django import forms
 from .models import Persona
 
-class PersonaForm(forms.Form):
+class PersonaForm(forms.ModelForm):
     class Meta:
         model = Persona
         fields = [
@@ -10,6 +10,13 @@ class PersonaForm(forms.Form):
             'edad',
             'donador',
         ]
+    def clean_nombres(self, *args, **kwargs):
+        print('Paso')
+        name = self.cleaned_data.get('nombres')
+        if name.istitle():
+            return name
+        else:
+            raise forms.ValidationError('La primera letra tiene que ser mayuscusla')
     
 class RawPersonaForm(forms.Form):
     nombres = forms.CharField(
