@@ -17,6 +17,8 @@ Including another URLconf
 from inicio.views import anotherView, myHomeView
 from django.contrib import admin
 from django.urls import path,include
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     #path('',myHomeView,name='Pagina de Inicio'),
@@ -32,3 +34,4 @@ urlpatterns = [
     #path('personas/<int:myID>/delete/',personaDeleteView, name = 'deleting'),
     #path('personas/',personasListView, name = 'listing'),
 ]
+urlpatterns = urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
